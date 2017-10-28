@@ -12,7 +12,7 @@ Members include:
 
 ## SPMFResultSet
 
-Rules are stored in three ways.  In a python dict based on the events in the antcedants and a python dict based on the events in the consequents.
+Rules are stored in three ways.  In a python dict based on the events in the antcedants, a python dict based on the events in the consequents, and simply an unordered list.
 
 ### Methods for adding rules to a SPMFResultSet
 
