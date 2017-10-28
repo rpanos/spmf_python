@@ -1,6 +1,6 @@
 import subprocess
 
-from spmf_configs.config_objects import Algorithm, SPMFconfigObjects
+from spmf_python.spmf_configs.config_objects import Algorithm, SPMFconfigObjects
 import os
 
 
@@ -16,8 +16,7 @@ class SPMFManager(object):
         else:
             self.spmf_path = 'SPMF.jar' ## no?
 
-    #@staticmethod
-    def call_spmf(self, SPMFconfigObjects, in_file=None, out_file=None):
+    def call_spmf(self, SPMFconfigObjects, in_file=None, out_file=None, over_write_ouput=False):
 
         # very temp - todo: give warnings or prevent overwriting or something
         if not in_file:
@@ -25,17 +24,15 @@ class SPMFManager(object):
         if not out_file:
             out_file = 'out.txt'
 
+        out_file_handle = open(out_file)
+        if out_file_handle and len(out_file_handle.name) > 0 and not over_write_ouput:
+            raise Exception('Output file Exists.  Use "over_write_ouput" option to overwrite')
+
         print "SPMFconfigObjects.algo_obj._name_:" + SPMFconfigObjects.algo_obj._name_
 
         # todo: if SPMFconfigObjects is not valid, throw error
 
-        # java -jar spmf.jar run RuleGrowth contextPrefixSpan.txt output.txt 75% 50%
-                            #run RuleGrowth in_file.spmf out.txt 0.5 0.6
-        # java -jar SPMF.jar run RuleGrowth in_file.spmf out.txt 0.5 0.6
-
-
         path = os.path.abspath(__file__)
-
 
         cmd_str = 'run ' + SPMFconfigObjects.algo_obj._name_ + ' ' + in_file + ' ' + out_file + ' ' + \
                   str(SPMFconfigObjects.min_sup_val) + ' ' + str(SPMFconfigObjects.min_conf_val)
@@ -45,7 +42,6 @@ class SPMFManager(object):
                          SPMFconfigObjects.algo_obj._name_, in_file, out_file,
                          str(SPMFconfigObjects.min_sup_val), str(SPMFconfigObjects.min_conf_val)])
 
-        # subprocess.call(['java', '-jar', 'SPMF.jar', cmd_str])
 
 
 
@@ -59,4 +55,5 @@ if __name__=='__main__':
 
     # SPMF_manager.call_spmf(spmf_obj)
     SPMF_manager.call_spmf(spmf_obj, in_file='/Users/rpanos/Documents/GitHub/spmf_python/in_file.spmf',
-                           out_file='/Users/rpanos/Documents/GitHub/spmf_python/spmf_data/out3.txt')
+                           out_file='/Users/rpanos/Documents/GitHub/spmf_python/spmf_data/out3.txt',
+                           over_write_ouput=True)

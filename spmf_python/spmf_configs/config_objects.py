@@ -21,16 +21,13 @@ class SPMFconfigObjects(object):
         self.min_sup_val = min_sup_val
         self.min_conf_val = min_conf_val
 
-        print "algo type: " + str(type(algo))
-
         if type(algo) == Algorithm:
             self.algo_obj = algo
-            print "YES Algorithm : " + str(self.algo_obj)
         elif type(algo) == str and Algorithm(algo) is not None:
             self.algo_obj = Algorithm(algo)
-            print "YES look up Algorithm : " + str(self.algo_obj)
         else:
             print " %% ERR: Algo missing"
+            raise Exception(' %% ERR: Algorithm name or Enum is not currently supported by spmf_python')
             # throw err?
 
 
@@ -42,5 +39,7 @@ if __name__=='__main__':
 
     spmf_obj = SPMFconfigObjects(algo1, .8, .6)
     spmf_obj = SPMFconfigObjects("CMDeo", .8, .6)
+    
+    spmf_obj = SPMFconfigObjects("Crap", .8, .6)
 
 
