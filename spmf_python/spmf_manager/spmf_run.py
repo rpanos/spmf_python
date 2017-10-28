@@ -47,6 +47,12 @@ class SPMFManager(object):
 
 if __name__=='__main__':
 
+    path = os.environ['PATH']
+    print "path: " + str(path)
+
+    spmf_home = os.environ['SPMF_HOME']
+    print "spmf_home: " + str(spmf_home)
+
     spmf_obj = SPMFconfigObjects("RuleGrowth", .5, .6)
 
     # spmf = open('SPMF.jar')
