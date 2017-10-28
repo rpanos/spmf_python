@@ -1,7 +1,9 @@
 
-import unittest
+import unittest, os
 # from spmf_python.spmf_parser.spmf_parser import SPMFResultSet
 from spmf_python.spmf_parser.spmf_parser import SPMFResultSet
+from spmf_python.spmf_parser.spmf_line_parsers import parse_line
+
 
 class TestSPMFResultSet(unittest.TestCase):
     def setUp(self):
@@ -54,6 +56,39 @@ class TestSPMFResultSet(unittest.TestCase):
         rules_wo_254 = temp_spmf_result_set_2.give_rules_w_out_all_antcedants([348])
         self.assertEqual(len(rules_wo_254), 1)
 
+
+    def test_orig_tests(self):
+
+
+        spmf_output_example1 = os.path.join(os.path.abspath('spmf_data'), 'spmf_output_example1.txt')
+        file_handle = open(spmf_output_example1)
+
+        spmf_result_set = SPMFResultSet()
+        spmf_result_set.load_result_set_from_file_handle(file_handle)
+        print " spmf_result_set.len: " + str(len(spmf_result_set.all_rules))
+
+        rule_list_1 = spmf_result_set.give_rules_w_all_consequents([250])
+        print "rule_set_1: " + str(len(rule_list_1))
+        spmf_result_set_2 = SPMFResultSet()
+        spmf_result_set_2.add_rules(rule_list_1)
+
+        rule_list_2 = spmf_result_set.give_rules_w_all_consequents([641])
+        print "rule_set_2: " + str(len(rule_list_2))
+
+        rule_list_3 = spmf_result_set_2.give_rules_w_all_antcedants([256])
+        print "rule_list_3: " + str(len(rule_list_3))
+
+
+class TestParseLine(unittest.TestCase):
+
+    def setUp(self):
+        pass
+
+    def test_parse_line(self):
+        spmf_rule_obj = parse_line('254,255 ==> 349 #SUP: 22 #CONF: 0.4230769230769231 #LIFT: 2.036410256410256')
+        (antcedants_int, consequents_int, stats) = spmf_rule_obj
+        self.assertEqual(antcedants_int, [254, 255])
+        self.assertEqual(consequents_int, [349])
 
 
 if __name__=='__main__':

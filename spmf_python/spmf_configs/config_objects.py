@@ -2,11 +2,6 @@
 from enum import Enum
 
 
-# >>> member = Color.RED
-# >>> member.name
-# 'RED'
-# >>> member.value
-# 1
 class Algorithm(Enum):
     CMDeo = "CMDeo"
     CMRules = "CMRules"
@@ -29,17 +24,5 @@ class SPMFconfigObjects(object):
             print " %% ERR: Algo missing"
             raise Exception(' %% ERR: Algorithm name or Enum is not currently supported by spmf_python')
             # throw err?
-
-
-
-
-if __name__=='__main__':
-
-    algo1 = Algorithm.CMRules
-
-    spmf_obj = SPMFconfigObjects(algo1, .8, .6)
-    spmf_obj = SPMFconfigObjects("CMDeo", .8, .6)
-
-    spmf_obj = SPMFconfigObjects("Crap", .8, .6)
 
 

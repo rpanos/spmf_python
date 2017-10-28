@@ -2,6 +2,7 @@
 import unittest, os
 from spmf_python.spmf_manager.spmf_run import SPMFManager, SPMFconfigObjects
 
+
 class TestSPMFManager(unittest.TestCase):
 
     def setUp(self):

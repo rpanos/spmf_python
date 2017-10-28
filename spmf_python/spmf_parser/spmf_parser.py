@@ -2,6 +2,7 @@
 
 from spmf_line_parsers import parse_line
 
+
 class SPMFOutputRule(object):
 
     def __init__(self, antcedants_int, consequents_int, stats):
@@ -106,27 +107,3 @@ class SPMFResultSet(object):
             rule_set = rule_set - set(self.rules_by_consequents[event])
         return list(rule_set)
 
-
-
-if __name__=='__main__':
-
-    file_handle = open('sample_data/example1.txt')
-
-    spmf_result_set = SPMFResultSet()
-    spmf_result_set.load_result_set_from_file_handle(file_handle)
-    print " spmf_result_set.len: " + str(len(spmf_result_set.all_rules))
-
-    rule_list_1 = spmf_result_set.give_rules_w_all_consequents([250])
-    print "rule_set_1: " + str(len(rule_list_1))
-    spmf_result_set_2 = SPMFResultSet()
-    spmf_result_set_2.add_rules(rule_list_1)
-
-    rule_list_2 = spmf_result_set.give_rules_w_all_consequents([641])
-    print "rule_set_2: " + str(len(rule_list_2))
-
-    rule_list_3 = spmf_result_set_2.give_rules_w_all_antcedants([256])
-    print "rule_list_3: " + str(len(rule_list_3))
-
-    # with file_handle as f:
-    #     for idx, line in enumerate(f):
-    #         print str(idx) + "|" + line

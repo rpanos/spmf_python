@@ -1,8 +1,20 @@
 
-
-
-# 254,255 ==> 349 #SUP: 22 #CONF: 0.4230769230769231 #LIFT: 2.036410256410256
 def parse_line(spmf_output_line):
+    '''
+        Takes an ouput line from SPMF and returns a useful python tuple
+
+        RETURNS a tuple containing:
+            - list of antcedant ints
+            - list of consequents ints
+            - dict of rule stats
+            (antcedants_int, consequents_int, stats)
+
+        These will eventually parse all of the outputs available in SPMF but we are starting with the
+        algos I know the best like RuleGrowth
+
+        EXAMPLE of a supported output:
+             254,255 ==> 349 #SUP: 22 #CONF: 0.4230769230769231 #LIFT: 2.036410256410256
+    '''
 
     if not spmf_output_line or len(spmf_output_line) == 1:
         return None
@@ -44,9 +56,3 @@ def parse_line(spmf_output_line):
     stats['supp'] = float(stat_str)
 
     return (antcedants_int, consequents_int, stats)
-
-
-
-if __name__=='__main__':
-
-    print str(parse_line('254,255 ==> 349 #SUP: 22 #CONF: 0.4230769230769231 #LIFT: 2.036410256410256'))
