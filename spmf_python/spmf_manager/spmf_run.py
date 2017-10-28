@@ -16,7 +16,6 @@ class SPMFManager(object):
         else:
             self.spmf_path = 'SPMF.jar' ## no?
 
-
     #@staticmethod
     def call_spmf(self, SPMFconfigObjects, in_file=None, out_file=None):
 
@@ -55,7 +54,13 @@ if __name__=='__main__':
 
     spmf_obj = SPMFconfigObjects("RuleGrowth", .5, .6)
 
-    spmf = open('SPMF.jar')
+    # arr = os.listdir('/Users/rpanos/Documents/GitHub/spmf_python/spmf_python/spmf_manager')
+    # arr = os.listdir('/Users/rpanos/Documents/GitHub/spmf_python/spmf_python')
+    # for x in arr:
+    #     print " > " + str(x)
+
+    # spmf = open('SPMF.jar')
+    spmf = open('/Users/rpanos/Documents/GitHub/spmf_python/SPMF.jar')
     SPMF_manager = SPMFManager(spmf)
 
     # SPMF_manager.call_spmf(spmf_obj)
