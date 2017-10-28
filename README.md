@@ -1,4 +1,4 @@
-# spmf_python
+# spmf_python 0.3
 Support tools on Python for SPMF
 
 The following python package contains tools that will enable a developer to utilize [SPMF](http://www.philippe-fournier-viger.com/spmf/) at a greater scale calling the JAav based tool using python.
