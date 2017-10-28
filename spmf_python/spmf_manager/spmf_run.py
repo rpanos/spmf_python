@@ -41,7 +41,6 @@ class SPMFManager(object):
                   str(SPMFconfigObjects.min_sup_val) + ' ' + str(SPMFconfigObjects.min_conf_val)
 
         print "(" + cmd_str + ") " + self.spmf_path
-
         subprocess.call(['java', '-jar',  self.spmf_path,  'run',
                          SPMFconfigObjects.algo_obj._name_, in_file, out_file,
                          str(SPMFconfigObjects.min_sup_val), str(SPMFconfigObjects.min_conf_val)])
@@ -54,14 +53,10 @@ if __name__=='__main__':
 
     spmf_obj = SPMFconfigObjects("RuleGrowth", .5, .6)
 
-    # arr = os.listdir('/Users/rpanos/Documents/GitHub/spmf_python/spmf_python/spmf_manager')
-    # arr = os.listdir('/Users/rpanos/Documents/GitHub/spmf_python/spmf_python')
-    # for x in arr:
-    #     print " > " + str(x)
-
     # spmf = open('SPMF.jar')
     spmf = open('/Users/rpanos/Documents/GitHub/spmf_python/SPMF.jar')
     SPMF_manager = SPMFManager(spmf)
 
     # SPMF_manager.call_spmf(spmf_obj)
-    SPMF_manager.call_spmf(spmf_obj, in_file='../in_file.spmf', out_file='out2.txt')
+    SPMF_manager.call_spmf(spmf_obj, in_file='/Users/rpanos/Documents/GitHub/spmf_python/in_file.spmf',
+                           out_file='/Users/rpanos/Documents/GitHub/spmf_python/spmf_data/out3.txt')
