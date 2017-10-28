@@ -28,7 +28,7 @@ Rules are stored in three ways.  In a python dict based on the events in the ant
   * accepts a python filehhandle to an SPMF output file.
 
     This might be used like this:
-```
+```python
       spmf_output_example1 = os.path.join(os.path.abspath('spmf_data'), 'spmf_output_example1.txt')
       file_handle = open(spmf_output_example1)
       spmf_result_set = SPMFResultSet()
