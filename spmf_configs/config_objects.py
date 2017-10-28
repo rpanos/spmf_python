@@ -22,6 +22,7 @@ class SPMFconfigObjects(object):
         self.min_conf_val = min_conf_val
 
         print "algo type: " + str(type(algo))
+
         if type(algo) == Algorithm:
             self.algo_obj = algo
             print "YES Algorithm : " + str(self.algo_obj)
