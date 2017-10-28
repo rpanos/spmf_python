@@ -39,7 +39,7 @@ if __name__=='__main__':
 
     spmf_obj = SPMFconfigObjects(algo1, .8, .6)
     spmf_obj = SPMFconfigObjects("CMDeo", .8, .6)
-    
+
     spmf_obj = SPMFconfigObjects("Crap", .8, .6)
 
 
