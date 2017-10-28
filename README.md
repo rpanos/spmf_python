@@ -8,7 +8,7 @@ In many scenarios, pattern mining involves managing large sets of association ru
 ## Modules
 
 ### SPMF Results Parsers (beta)
-This module is intended to make large SPMF result sets very managable.  The rule sets are stored as python objects that are available to developers but also provides a wrappers around largesets of rule sets.  These wrappers are intended to make the rule sets very searchable.
+This module is intended to make large SPMF result sets very managable.  Each rule is stored as python objects that are available to developers but also provides a wrappers around largesets of rule sets.  These wrappers are intended to make the rule sets very searchable.
 
 ### SPMF Manager (very beta)
 This is to allow a developer, after configuring the location of SPMF.jar on their system, to call SPMF using python.  
@@ -30,4 +30,4 @@ So far this also involves resuable SPMFconfigObjects that will manage valid call
 1. from package root run: nosetests
 
 ## Warning
-This module is ultimatley designed to be used as a dependancy but package 'SPMF Manager' and its ability to call SPMF.jar in different environments are very much in beta.  Pls start with SPMF Results Parsers first.
+This module is ultimatley designed to be used as a dependancy but the package 'SPMF Manager' and its ability to call SPMF.jar in different environments are very much in beta.  Pls try using SPMF Results Parsers first!
