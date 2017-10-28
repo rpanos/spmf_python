@@ -30,4 +30,4 @@ So far this also involves resuable SPMFconfigObjects that will manage valid call
 1. from package root run: nosetests
 
 ## Warning
-This module is ultimatley designed to be used as a dependancy but the package 'SPMF Manager' and its ability to call SPMF.jar in different environments are very much in beta.  Pls try using SPMF Results Parsers first!
+This module is ultimatley designed to be used as a dependancy in another Python repo but the package 'SPMF Manager' and its ability to call SPMF.jar in different environments are very much in beta.  If you decide to use it as a pip installed dependancy, pls try using SPMF Results Parsers first and use SPMF Manager at your own risk.  If you are able to set the SPMF_HOME env variable then it should work in theory but it has not been properly tested yet.
