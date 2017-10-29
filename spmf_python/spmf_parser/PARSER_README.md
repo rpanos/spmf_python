@@ -10,7 +10,7 @@ Members include:
 - stats: dict of rule stats
 
 
-## SPMFResultSet
+## SPMFResultSet objects
 
 Rules are stored in three ways.  In a python dict based on the events in the antcedants, a python dict based on the events in the consequents, and simply an unordered list.  To leverage this code, first utilize the many ways to add rules to a SPMFResultSet using the following functions and then search for specific rules using the subsequent search functions.
 
