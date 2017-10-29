@@ -34,3 +34,12 @@ Rules are stored in three ways.  In a python dict based on the events in the ant
       spmf_result_set = SPMFResultSet()
       spmf_result_set.load_result_set_from_file_handle(file_handle)
 ```
+
+Search Function | Aurguments | Purpose
+--- | --- | ---
+give_rules_w_antcedants | event list (ints) | all rules that have at least one these events as antecedants (union)
+give_rules_w_all_antcedants | event list (ints) | all rules that have all these events as antecedants (intersection)
+give_rules_w_out_all_antcedants | event list (ints) | all rules that do not have any of these events as antecedants (intersection)
+give_rules_w_consequents | event list (ints) | all rules that have at least one these events as consequents (union)
+give_rules_w_all_consequents | event list (ints) | all rules that have all these events as consequents (intersection)
+give_rules_w_out_all_consequents | event list (ints) | all rules that do not have any of these events as consequents (intersection)
