@@ -1,4 +1,4 @@
-
+import os
 
 from spmf_line_parsers import parse_line
 
@@ -9,6 +9,12 @@ class SPMFOutputRule(object):
         self.antcedants_int = antcedants_int
         self.consequents_int = consequents_int
         self.stats = stats
+
+    def give_conf(self):
+        if self.stats and "conf" in self.stats:
+            return self.stats["conf"]
+        else:
+            raise Exception('stats["conf"] missing in SPMFOutputRule')
 
     def __unicode__(self):
         return str(self.antcedants_int) + " ==> " + str(self.consequents_int)
@@ -105,3 +111,7 @@ class SPMFResultSet(object):
             rule_set = rule_set - set(self.rules_by_consequents[event])
         return list(rule_set)
 
+    def give_rules_w_min_conf(self, min_conf):
+        if min_conf and 1 >= float(min_conf) >= 0:
+            return [rule for rule in self.all_rules if rule.give_conf() > float(min_conf)]
+        raise Exception('improper min_conf used in give_rules_w_min_conf')

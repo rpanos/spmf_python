@@ -23,6 +23,4 @@ class SPMFconfigObjects(object):
         else:
             print " %% ERR: Algo missing"
             raise Exception(' %% ERR: Algorithm name or Enum is not currently supported by spmf_python')
-            # throw err?
-
 

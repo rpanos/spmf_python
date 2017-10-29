@@ -1,6 +1,5 @@
 
 import unittest, os
-# from spmf_python.spmf_parser.spmf_parser import SPMFResultSet
 from spmf_python.spmf_parser.spmf_parser import SPMFResultSet
 from spmf_python.spmf_parser.spmf_line_parsers import parse_line
 
@@ -40,11 +39,6 @@ class TestSPMFResultSet(unittest.TestCase):
         rule_set_3 = self.spmf_result_set.give_rules_w_all_antcedants([348, 823, 348])
         self.assertEqual(len(rule_set_3), 1)
 
-        print " rule_set_2: " + str(len(rule_set_2))
-        print " rule_set_3: " + str(len(rule_set_3))
-
-        # SPMFOutputRule([1,2], [3])
-
     def test_w_out_rule(self):
         temp_spmf_result_set = SPMFResultSet()
         temp_spmf_result_set.add_rules_str(self.example_output)
@@ -56,27 +50,26 @@ class TestSPMFResultSet(unittest.TestCase):
         rules_wo_254 = temp_spmf_result_set_2.give_rules_w_out_all_antcedants([348])
         self.assertEqual(len(rules_wo_254), 1)
 
-
     def test_orig_tests(self):
-
-
         spmf_output_example1 = os.path.join(os.path.abspath('spmf_data'), 'spmf_output_example1.txt')
         file_handle = open(spmf_output_example1)
 
         spmf_result_set = SPMFResultSet()
         spmf_result_set.load_result_set_from_file_handle(file_handle)
-        print " spmf_result_set.len: " + str(len(spmf_result_set.all_rules))
 
         rule_list_1 = spmf_result_set.give_rules_w_all_consequents([250])
-        print "rule_set_1: " + str(len(rule_list_1))
+        self.assertEqual(len(rule_list_1), 268)
         spmf_result_set_2 = SPMFResultSet()
         spmf_result_set_2.add_rules(rule_list_1)
 
         rule_list_2 = spmf_result_set.give_rules_w_all_consequents([641])
-        print "rule_set_2: " + str(len(rule_list_2))
+        self.assertEqual(len(rule_list_2), 294)
 
         rule_list_3 = spmf_result_set_2.give_rules_w_all_antcedants([256])
-        print "rule_list_3: " + str(len(rule_list_3))
+        self.assertEqual(len(rule_list_3), 5)
+
+        rule_list_4 = spmf_result_set_2.give_rules_w_min_conf(0.9)
+        self.assertEqual(len(rule_list_4), 4)
 
 
 class TestParseLine(unittest.TestCase):
@@ -90,6 +83,3 @@ class TestParseLine(unittest.TestCase):
         self.assertEqual(antcedants_int, [254, 255])
         self.assertEqual(consequents_int, [349])
 
-
-if __name__=='__main__':
-    TestSPMFResultSet.test_add_rule()
