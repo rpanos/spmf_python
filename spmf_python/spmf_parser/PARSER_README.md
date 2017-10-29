@@ -12,7 +12,7 @@ Members include:
 
 ## SPMFResultSet
 
-Rules are stored in three ways.  In a python dict based on the events in the antcedants, a python dict based on the events in the consequents, and simply an unordered list.
+Rules are stored in three ways.  In a python dict based on the events in the antcedants, a python dict based on the events in the consequents, and simply an unordered list.  To leverage this code, first utilize the many ways to add rules to a SPMFResultSet using the following functions and then search for specific rules using the subsequent search functions.
 
 ### Methods for adding rules to a SPMFResultSet
 
@@ -35,11 +35,13 @@ Rules are stored in three ways.  In a python dict based on the events in the ant
       spmf_result_set.load_result_set_from_file_handle(file_handle)
 ```
 
+### Methods for search rules within a SPMFResultSet
+
 Search Function | Aurguments | Purpose
 --- | --- | ---
 give_rules_w_antcedants | event list (ints) | all rules that have at least one these events as antecedants (union)
 give_rules_w_all_antcedants | event list (ints) | all rules that have all these events as antecedants (intersection)
-give_rules_w_out_all_antcedants | event list (ints) | all rules that do not have any of these events as antecedants (intersection)
+give_rules_w_out_all_antcedants | event list (ints) | all rules that do not have any of these events as antecedants 
 give_rules_w_consequents | event list (ints) | all rules that have at least one these events as consequents (union)
 give_rules_w_all_consequents | event list (ints) | all rules that have all these events as consequents (intersection)
-give_rules_w_out_all_consequents | event list (ints) | all rules that do not have any of these events as consequents (intersection)
+give_rules_w_out_all_consequents | event list (ints) | all rules that do not have any of these events as consequents
