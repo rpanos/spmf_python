@@ -48,7 +48,9 @@ give_rules_w_out_all_consequents | event list (ints) | all rules that do not hav
 
 
 ### Using filter (search) functions in sequence
-The variety of ways to add to a SPMFResultSet are largely inspired by the need to filter in sequence.  However, in the current design, these are not chained like you might see in the JQuery world, although child classes that would allow this are being considered in subsequent versions.  A developer allows a second filter (or search) by creating a new SPMFResultSet with the results of the first filter such as this:
+The variety of ways to add to a SPMFResultSet are largely inspired by the need to filter in sequence.  However, in the current design, these are not chained like you might see in the JQuery world, although child classes that would allow this are being considered in subsequent versions.  
+
+A developer allows a second filter (or search) by creating a new SPMFResultSet with the results of the first filter such as this:
 
 1. Create SPMFResultSet from an SPMF output file
 ```pythyon
