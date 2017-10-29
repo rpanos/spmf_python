@@ -11,7 +11,6 @@ class SPMFOutputRule(object):
         self.stats = stats
 
     def __unicode__(self):
-        # '254,255 ==> 349 #SUP: 22 #CONF: 0.4230769230769231 #LIFT: 2.036410256410256'
         return str(self.antcedants_int) + " ==> " + str(self.consequents_int)
 
 
@@ -52,7 +51,6 @@ class SPMFResultSet(object):
     def load_result_set_from_file_handle(self, file_handle):
         with file_handle as f:
             for idx, line in enumerate(f):
-                # print str(idx) + "|" + line
                 self.add_rule_from_str(line)
 
     def give_rules_w_antcedants(self, event_ls):
