@@ -11,10 +11,10 @@ In many scenarios, pattern mining involves managing large sets of association ru
 This module is intended to make large SPMF result sets very managable.  Each rule is stored as python objects that are available to developers but also provides a wrappers around largesets of rule sets.  These wrappers are intended to make the rule sets very searchable.  [SPMF Results Parsers Details](/spmf_python/spmf_parser/PARSER_README.md)
 
 ### SPMF Manager (very beta)
-This is to allow a developer, after configuring the location of SPMF.jar on their system, to call SPMF using python.  An example might be:
+This is to allow a developer, after configuring the location of SPMF.jar on their system using the environemnt variable SPMF_HOME, to call SPMF using python.  An example might be:
 
 ```python
-spmf_manager = SPMFManager(spmf)
+spmf_manager = SPMFManager()
 spmf_config_obj = SPMFconfigObjects("RuleGrowth", .5, .6)
 spmf_manager.call_spmf(spmf_config_obj, in_file=in_file, out_file=out_file, over_write_ouput=True)
 ```
